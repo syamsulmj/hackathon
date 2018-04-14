@@ -19,7 +19,7 @@ class CreateAccountFixedDepositsTable extends Migration
             $table->string('deposit_id');
             $table->float('amount');
             $table->float('interest_rate');
-            $table->int('period');
+            $table->decimal('period');
             $table->timestamps();
         });
     }

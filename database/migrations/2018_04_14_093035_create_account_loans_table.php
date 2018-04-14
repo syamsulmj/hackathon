@@ -19,7 +19,7 @@ class CreateAccountLoansTable extends Migration
             $table->string('loan_id');
             $table->string('loan_type');
             $table->float('loan_amount');
-            $table->int('period_loans');
+            $table->decimal('period_loans');
             $table->timestamps();
         });
     }
