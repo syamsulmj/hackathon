@@ -15,15 +15,20 @@ use App\AccountTransactions;
 class AccountController extends Controller
 {
     public function index() {
+      $accounts = UserAccounts::all();
 
+      return $accounts;
     }
 
     public function show($account_id) {
+      $accounts = UserAccounts::all()->where('account_id', $account_id);
 
+      return $accounts;
     }
 
     public function create() {
 
+      
     }
 
     public function update() {

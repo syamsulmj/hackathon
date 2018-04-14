@@ -6,12 +6,9 @@ use Illuminate\Http\Request;
 
 class FixedDepositController extends Controller
 {
-    public function index() {
+    public function create(Request $request) {
 
-    }
-
-    public function create() {
-
+      
     }
 
     public function pre_closed() {
