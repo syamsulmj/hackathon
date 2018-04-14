@@ -15,6 +15,10 @@ class CreateAccountBillsTable extends Migration
     {
         Schema::create('account_bills', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('account_id');
+            $table->string('bill_id');
+            $table->string('bill_type');
+            $table->float('amount');
             $table->timestamps();
         });
     }

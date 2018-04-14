@@ -15,6 +15,12 @@ class CreateAccountTransactionsTable extends Migration
     {
         Schema::create('account_transactions', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('account_id');
+            $table->string('transaction_id');
+            $table->string('recipient_bank');
+            $table->string('recipient_account_no');
+            $table->string('type_transaction');
+            $table->float('amount');
             $table->timestamps();
         });
     }

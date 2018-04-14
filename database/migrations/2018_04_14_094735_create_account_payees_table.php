@@ -15,6 +15,11 @@ class CreateAccountPayeesTable extends Migration
     {
         Schema::create('account_payees', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('account_id');
+            $table->string('payee_id');
+            $table->string('payee_name');
+            $table->string('method');
+            $table->float('total');
             $table->timestamps();
         });
     }

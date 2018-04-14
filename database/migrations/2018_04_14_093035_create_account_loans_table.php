@@ -15,6 +15,11 @@ class CreateAccountLoansTable extends Migration
     {
         Schema::create('account_loans', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('account_id');
+            $table->string('loan_id');
+            $table->string('loan_type');
+            $table->float('loan_amount');
+            $table->int('period_loans');
             $table->timestamps();
         });
     }

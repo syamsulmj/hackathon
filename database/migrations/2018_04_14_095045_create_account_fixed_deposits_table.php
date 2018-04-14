@@ -15,6 +15,11 @@ class CreateAccountFixedDepositsTable extends Migration
     {
         Schema::create('account_fixed_deposits', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('account_id');
+            $table->string('deposit_id');
+            $table->float('amount');
+            $table->float('interest_rate');
+            $table->int('period');
             $table->timestamps();
         });
     }
