@@ -18,6 +18,10 @@ class AccountController extends Controller
 
     }
 
+    public function show($account_id) {
+
+    }
+
     public function create() {
 
     }
@@ -25,6 +29,7 @@ class AccountController extends Controller
     public function update() {
 
     }
+
     // createAccountHolderProfile
     // getAccountHolderProfile
     // updateAccountHolderProfile
