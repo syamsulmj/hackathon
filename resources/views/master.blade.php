@@ -10,7 +10,14 @@
     <title>Hackathon</title>
   </head>
   <body>
-    @include('shared.nav')
+    @if (url()->current() == action('HomeController@login') || url()->current() == action('HomeController@register'))
+      <div style="margin-top: 100px">
+
+      </div>
+    @else
+      @include('shared.nav')
+    @endif
+
     @yield('content')
 
   </body>

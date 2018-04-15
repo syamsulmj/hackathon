@@ -6,17 +6,30 @@ use Illuminate\Http\Request;
 
 use App\User;
 use App\UserAccounts;
+use App\DataLog;
 
 class ProfileController extends Controller
 {
     public function index($profile_id) {
 
-      $users = User::all()->where('profile_id', $profile_id);
+      DataLog::create([
+        'HTTP_action' => 'GET',
+        'noun' => 'profile',
+        'business_operation' => 'getAccountHolderProfile'
+      ]);
 
-      return $users;
+      $users = User::where('profile_id', $profile_id)->first();
+
+      return response()->json($users);
     }
 
     public function create(Request $request) {
+
+      DataLog::create([
+        'HTTP_action' => 'POST',
+        'noun' => 'profile',
+        'business_operation' => 'createAccountHolderProfile'
+      ]);
 
       if(User::count()) {
         $getProfileID = User::all()->last()->profile_id;
@@ -42,12 +55,38 @@ class ProfileController extends Controller
         'api_token' => User::generateToken()
       ]);
 
-      return response()->json(null, 200);
+      return response()->json(
+      ['success' => true]);
 
     }
 
-    public function update($profile_id) {
+    public function update($profile_id, $api_token) {
 
-      $update;
+      DataLog::create([
+        'HTTP_action' => 'PUT',
+        'noun' => 'profile',
+        'business_operation' => 'updateAccountHolderProfile'
+      ]);
+
+      $user = User::where('profile_id', $profile_id)->where('api_token', $api_token)->first();
+
+      if($user != null) {
+        $update = [
+          'success' => true,
+          'access_token' => $user->api_token,
+          'update' => [
+            'name' => 'New name',
+            'username' => 'New username',
+            'address' => 'New address',
+            'email' => 'New email'
+          ]
+        ];
+
+        return response()->json($update);
+      }
+      else {
+        return response()->json(['success' => false]);
+      }
+
     }
 }

@@ -11,53 +11,33 @@ use App\AccountLoans;
 use App\AccountFixedDeposits;
 use App\AccountPayments;
 use App\AccountTransactions;
+use App\DataLog;
 
 class AccountController extends Controller
 {
     public function index() {
+
+      DataLog::create([
+        'HTTP_action' => 'GET',
+        'noun' => 'account',
+        'business_operation' => 'getAllAccounts'
+      ]);
+
       $accounts = UserAccounts::all();
 
-      return $accounts;
+      return response()->json($accounts);
     }
 
     public function show($account_id) {
-      $accounts = UserAccounts::all()->where('account_id', $account_id);
+
+      DataLog::create([
+        'HTTP_action' => 'GET',
+        'noun' => 'account',
+        'business_operation' => 'getAccounts'
+      ]);
+
+      $accounts = UserAccounts::where('account_id', $account_id)->first();
 
       return $accounts;
     }
-
-    public function create() {
-
-
-    }
-
-    public function update() {
-
-    }
-
-    // createAccountHolderProfile
-    // getAccountHolderProfile
-    // updateAccountHolderProfile
-    // getAccountSummary
-    // getLoanAccounts
-    // getAllAccounts
-    // billPayment
-    // cancelPayment
-    // addPayee
-    // updatePayee
-    // deletePayee
-    // createFixedDeposit
-    // preCloseFixedDeposit
-    // getAllTransactions
-    // addTransaction
-    // getTransaction
-
-    // Account
-    // Profile
-    // Bill
-    // Loan
-    // Payee
-    // Fixed Deposit
-    // Payment
-    // Transaction
 }

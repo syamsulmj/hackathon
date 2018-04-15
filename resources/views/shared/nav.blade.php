@@ -6,7 +6,7 @@
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
       </li>
 
       <li class="nav-item dropdown">
@@ -14,8 +14,8 @@
           Account
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="account.html ">Personal Account</a>
-          <a class="dropdown-item" href="allaccount.html">All Account</a>
+          <a class="dropdown-item" href="/profile/{{ session('profile_id') }}">Personal Account</a>
+          <a class="dropdown-item" href="/all-account/">All Account</a>
         </div>
       </li>
 
@@ -34,7 +34,7 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="log.html">Log</a>
+        <a class="nav-link" href="/data-logs">Log</a>
       </li>
 
     </ul>
