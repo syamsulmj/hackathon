@@ -10,7 +10,7 @@
     <title>Hackathon</title>
   </head>
   <body>
-
+    @include('shared.nav')
     @yield('content')
 
   </body>
