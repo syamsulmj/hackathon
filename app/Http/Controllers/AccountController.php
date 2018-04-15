@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Users;
+use App\User;
 use App\UserAccounts;
 use App\AccountBills;
 use App\AccountLoans;
@@ -28,7 +28,7 @@ class AccountController extends Controller
 
     public function create() {
 
-      
+
     }
 
     public function update() {
