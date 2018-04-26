@@ -72,6 +72,7 @@ class HomeController extends Controller
             'api_token' => $user->api_token,
             'profile_id' => $user->profile_id
           ]);
+          //
         return redirect()->action('HomeController@index');
       }
       else {
